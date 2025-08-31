@@ -52,7 +52,40 @@ body {
 }
 
 .contact-info {
-    margin-top: 15px;
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #474747;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 8px 18px;
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.contact-link:hover {
+    background: #4e4e4e;
+    border-color: #7c7c7c;
+    transform: translateY(-2px);
+    color: #fff;
+    transition: all 0.3s ease
+}
+
+.contact-text {
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
 }
 
 .stack-section {
@@ -449,6 +482,10 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+.light-theme .hero h2 {
+    color: #333333;
 }
 
 .light-theme .tech-card,

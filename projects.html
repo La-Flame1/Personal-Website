@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button class="theme-toggle" onclick="toggleTheme()">
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
@@ -21,159 +21,15 @@
 
         <div class="projects-grid">
             <div class="project-card">
-                <h3 class="project-title">Modern Dashboard</h3>
-                <p class="project-description">A responsive dashboard built with React and TypeScript, featuring real-time data visualization and a clean, intuitive interface.</p>
+                <h3 class="project-title">Personal Website</h3>
+                <p class="project-description">A personal website tailored to showcase my CV, skillset and personal aspirations. Built with modern web technologies featuring responsive design and clean interface.</p>
                 <div class="project-tech">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">Tailwind CSS</span>
-                    <span class="tech-tag">Chart.js</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" class="project-link">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-                            <polyline points="15,3 21,3 21,9"/>
-                            <line x1="10" y1="14" x2="21" y2="3"/>
-                        </svg>
-                        Live Demo
-                    </a>
-                    <a href="#" class="project-link">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
-                        </svg>
-                        GitHub
-                    </a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3 class="project-title">E-commerce Platform</h3>
-                <p class="project-description">Full-stack e-commerce solution with Next.js, featuring authentication, payment processing, and admin panel.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">Next.js</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">Stripe</span>
-                    <span class="tech-tag">Prisma</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" class="project-link">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-                            <polyline points="15,3 21,3 21,9"/>
-                            <line x1="10" y1="14" x2="21" y2="3"/>
-                        </svg>
-                        Live Demo
-                    </a>
-                    <a href="#" class="project-link">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
-                        </svg>
-                        GitHub
-                    </a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3 class="project-title">Task Management App</h3>
-                <p class="project-description">Collaborative task management application with real-time updates, drag-and-drop functionality, and team features.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Socket.io</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">MongoDB</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" class="project-link">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-                            <polyline points="15,3 21,3 21,9"/>
-                            <line x1="10" y1="14" x2="21" y2="3"/>
-                        </svg>
-                        Live Demo
-                    </a>
-                    <a href="#" class="project-link">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
-                        </svg>
-                        GitHub
-                    </a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3 class="project-title">Component Library</h3>
-                <p class="project-description">Custom React component library with Storybook documentation, published to NPM with TypeScript support.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Storybook</span>
-                    <span class="tech-tag">Rollup</span>
-                    <span class="tech-tag">NPM</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" class="project-link">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-                            <polyline points="15,3 21,3 21,9"/>
-                            <line x1="10" y1="14" x2="21" y2="3"/>
-                        </svg>
-                        Live Demo
-                    </a>
-                    <a href="#" class="project-link">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
-                        </svg>
-                        GitHub
-                    </a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3 class="project-title">Weather App</h3>
-                <p class="project-description">Modern weather application with location-based forecasts, interactive maps, and detailed weather analytics.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">OpenWeather API</span>
-                    <span class="tech-tag">Leaflet</span>
-                    <span class="tech-tag">Chart.js</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" class="project-link">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-                            <polyline points="15,3 21,3 21,9"/>
-                            <line x1="10" y1="14" x2="21" y2="3"/>
-                        </svg>
-                        Live Demo
-                    </a>
-                    <a href="#" class="project-link">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
-                        </svg>
-                        GitHub
-                    </a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3 class="project-title">Portfolio Website</h3>
-                <p class="project-description">Personal portfolio website built with modern web technologies, featuring responsive design and smooth animations.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">HTML5</span>
-                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
                     <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">GSAP</span>
                 </div>
                 <div class="project-links">
-                    <a href="#" class="project-link">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-                            <polyline points="15,3 21,3 21,9"/>
-                            <line x1="10" y1="14" x2="21" y2="3"/>
-                        </svg>
-                        Live Demo
-                    </a>
-                    <a href="#" class="project-link">
+                    <a href="https://github.com/La-Flame1/Personal-Website" target="_blank" rel="noopener" class="project-link">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
                         </svg>
@@ -181,6 +37,44 @@
                     </a>
                 </div>
             </div>
+
+            <div class="project-card">
+                <h3 class="project-title">UniConnect Web Chat</h3>
+                <p class="project-description">This project is a real-time chat application that enables users to send and receive messages instantly over a WebSocket connection. It serves as a basic example of implementing real-time communication.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">WebSocket</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/La-Flame1/UniConnect_Web_Chat" target="_blank" rel="noopener" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3 class="project-title">UbuntuTech</h3>
+                <p class="project-description">A C2C website commerce that is at the introductory level. I have learned that this is lacking a lot of industry practices and practically has no security. A good demonstration of my growth as a developer.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">HTML</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/La-Flame1/UbuntuTech" target="_blank" rel="noopener" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>           
         </div>
     </div>
 

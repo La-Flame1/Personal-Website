@@ -44,6 +44,13 @@ body {
     color: #cccccc;
 }
 
+.hero h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 15px;
+    color: #aaaaaa;
+}
+
 .hero p {
     font-size: 1.2rem;
     opacity: 0.8;

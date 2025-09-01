@@ -21,8 +21,11 @@ function updateThemeIcon() {
     
     if (themeToggle) {
         themeToggle.innerHTML = isLightTheme 
-            ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>'
-            : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+            ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>'
+            : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>';
+        
+        themeToggle.title = isLightTheme ? 'Switch to dark mode' : 'Switch to light mode';
+        themeToggle.setAttribute('aria-label', isLightTheme ? 'Switch to dark mode' : 'Switch to light mode');
     }
 }
 
@@ -61,6 +64,27 @@ function initTechCardEffects() {
             this.style.transform = 'translateY(0) scale(1)';
         });
     });
+}
+
+// CV download effects
+function initCVEffects() {
+    const cvDownload = document.querySelector('.cv-download');
+    
+    if (cvDownload) {
+        cvDownload.addEventListener('mouseenter', function() {
+            const cvIcon = this.querySelector('.cv-icon');
+            if (cvIcon) {
+                cvIcon.style.transform = 'scale(1.1) rotate(5deg)';
+            }
+        });
+        
+        cvDownload.addEventListener('mouseleave', function() {
+            const cvIcon = this.querySelector('.cv-icon');
+            if (cvIcon) {
+                cvIcon.style.transform = 'scale(1) rotate(0deg)';
+            }
+        });
+    }
 }
 
 // Project card animations
@@ -122,7 +146,7 @@ function initScrollAnimations() {
     }, observerOptions);
     
     // Observe elements that should fade in
-    const animatedElements = document.querySelectorAll('.tech-card, .project-card, .blog-post, .experience-item, .education-item');
+    const animatedElements = document.querySelectorAll('.tech-card, .project-card, .blog-post, .experience-item, .education-item, .cv-download');
     
     animatedElements.forEach(el => {
         el.style.opacity = '0';
@@ -213,7 +237,7 @@ function initLoadingStates() {
     });
 }
 
-// Add CSS for loading states
+// Add CSS for loading states and transitions
 function addLoadingStyles() {
     const style = document.createElement('style');
     style.textContent = `
@@ -229,6 +253,18 @@ function addLoadingStyles() {
         .read-more {
             transition: transform 0.3s ease, color 0.3s ease;
         }
+        
+        .cv-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .cv-arrow {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .theme-toggle {
+            transition: all 0.3s ease, transform 0.2s ease;
+        }
     `;
     document.head.appendChild(style);
 }
@@ -240,6 +276,7 @@ function init() {
     updateActiveNavigation();
     initSmoothScrolling();
     initTechCardEffects();
+    initCVEffects();
     initProjectCardEffects();
     initBlogPostEffects();
     initScrollAnimations();
@@ -262,7 +299,13 @@ function init() {
         }
         
         .project-link:focus,
-        .read-more:focus {
+        .read-more:focus,
+        .cv-download:focus {
+            outline: 1px solid #61dafb;
+            outline-offset: 2px;
+        }
+        
+        .contact-link:focus {
             outline: 1px solid #61dafb;
             outline-offset: 2px;
         }

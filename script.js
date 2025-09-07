@@ -284,6 +284,7 @@ function init() {
     initResponsiveHandling();
     initLoadingStates();
     addLoadingStyles();
+    initScrollNavigation();
     
     // Add focus styles for better accessibility
     const style = document.createElement('style');
@@ -311,6 +312,39 @@ function init() {
         }
     `;
     document.head.appendChild(style);
+}
+
+// Navigation scroll behavior
+function initScrollNavigation() {
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    
+    const bottomNav = document.querySelector('.bottom-nav');
+    if (!bottomNav) return;
+    
+    function updateNavigationVisibility() {
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            // Scrolling down - hide navigation
+            bottomNav.classList.add('nav-hidden');
+        } else {
+            // Scrolling up - show navigation
+            bottomNav.classList.remove('nav-hidden');
+        }
+        
+        lastScrollY = currentScrollY;
+        ticking = false;
+    }
+    
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateNavigationVisibility);
+            ticking = true;
+        }
+    }
+    
+    window.addEventListener('scroll', requestTick, { passive: true });
 }
 
 // Initialize when DOM is ready

@@ -325,8 +325,8 @@ function initScrollNavigation() {
     function updateNavigationVisibility() {
         const currentScrollY = window.scrollY;
         
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-            // Scrolling down - hide navigation
+        if (currentScrollY > lastScrollY && currentScrollY > 50) {
+            // Scrolling down - hide navigation completely
             bottomNav.classList.add('nav-hidden');
         } else {
             // Scrolling up - show navigation

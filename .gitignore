@@ -69,6 +69,10 @@ temp/
 *.tmp
 *.temp
 
+# Pdf files
+blogContent/
+*.pdf
+
 # Archive files
 *.zip
 *.tar.gz

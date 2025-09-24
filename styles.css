@@ -771,7 +771,7 @@ body {
 
 /* Experience Contributions Styling - Black/Grey Theme */
 .experience-contributions {
-    background: #000000;
+    background: rgb(36, 36, 36);
     border: 1px solid #333333;
     border-radius: 12px;
     padding: 25px;

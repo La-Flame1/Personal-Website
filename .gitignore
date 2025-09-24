@@ -22,7 +22,9 @@ out/
 .output/
 
 # Vercel
-.vercel
+vercel/
+.vercel*
+.vercel.json*
 
 # Editor directories and files
 .vscode/

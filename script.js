@@ -359,4 +359,52 @@ window.portfolioUtils = {
     toggleTheme,
     updateActiveNavigation,
     initScrollAnimations
-};
+}
+
+// --- Theme Toggle ---
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme) {
+    document.body.classList.add(currentTheme);
+}
+
+function toggleTheme() {
+    document.body.classList.toggle('light-theme');
+    let theme = 'dark-theme'; // Default
+    if (document.body.classList.contains('light-theme')) {
+        theme = 'light-theme';
+    }
+    localStorage.setItem('theme', theme);
+}
+
+// --- Scroll-to-Top Button ---
+const scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// --- Scroll Event Listener (for Nav and Scroll-to-Top) ---
+const nav = document.querySelector('.bottom-nav');
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', () => {
+    // Scroll-to-Top button logic
+    if (window.scrollY > 200) {
+        scrollToTopBtn.classList.add('show');
+    } else {
+        scrollToTopBtn.classList.remove('show');
+    }
+
+    // Nav bar hide/show logic
+    if (lastScrollY < window.scrollY && window.scrollY > 150) {
+        // Scrolled down
+        nav.classList.add('nav-hidden');
+    } else {
+        // Scrolled up
+        nav.classList.remove('nav-hidden');
+    }
+    lastScrollY = window.scrollY;
+});

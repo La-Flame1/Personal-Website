@@ -1,7 +1,29 @@
+/* Hide scrollbar */
+html, body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE/Edge */
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none; /* WebKit */
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* --- CSS Custom Properties (Defaults) --- */
+:root {
+    --glass-blur: 10px;
+    --glass-saturation: 100%;
+    --glass-contrast: 100%;
+    --glass-size: 22rem;
+    --glass-border-width: 1px;
+    --glass-icon-color: #ffffff;
+    --glass-tint-color: 255, 255, 255; /* Stored as R,G,B values */
+    --glass-tint-alpha: 0.15;
+    --shadow-opacity: 1;
 }
 
 body {
@@ -942,13 +964,17 @@ body {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: #2a2a2a;
-    border: 1px solid #333;
+    background: rgba(var(--glass-tint-color), var(--glass-tint-alpha));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation)) contrast(var(--glass-contrast));
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation)) contrast(var(--glass-contrast));
+    border: var(--glass-border-width) solid rgba(255, 255, 255, 0.3);
     border-radius: 25px;
     padding: 8px;
     z-index: 1000;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4) inset,
+                0 0 0 1px rgba(255, 255, 255, 0.4),
+                0 8px 32px rgba(0, 0, 0, calc(0.25 * var(--shadow-opacity)));
 }
 
 .bottom-nav.nav-hidden {
@@ -982,12 +1008,12 @@ body {
 }
 
 .nav-item:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(var(--glass-tint-color), 0.3);
 }
 
 .nav-item.active {
-    background: #404040;
-    border: 1px solid #555;
+    background: rgba(var(--glass-tint-color), 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
@@ -998,21 +1024,22 @@ body {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    color: #666;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .nav-item.active .nav-icon {
-    color: #fff;
+    color: var(--glass-icon-color);
 }
 
 .nav-text {
     font-size: 0.8rem;
-    color: #888;
+    color: rgba(255, 255, 255, 0.7);
     transition: color 0.3s ease;
+    font-weight: 700; /* UPDATED: Bold font */
 }
 
 .nav-item.active .nav-text {
-    color: #fff;
+    color: var(--glass-icon-color);
 }
 
 /* Theme Toggle */
@@ -1035,6 +1062,40 @@ body {
 }
 
 .theme-toggle:hover {
+    background: #333;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Scroll-to-top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    color: #888;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
     background: #333;
     color: #fff;
     transform: scale(1.05);
@@ -1120,10 +1181,16 @@ body {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
+/* Lighter grey nav bar in light mode */
 .light-theme .bottom-nav {
-    background: #ffffff;
-    border: 1px solid #dee2e6;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    --glass-tint-color: 70, 70, 70;
+    --glass-tint-alpha: 0.6;
+    
+    background: rgba(var(--glass-tint-color), var(--glass-tint-alpha));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation)) contrast(var(--glass-contrast));
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation)) contrast(var(--glass-contrast));
+    border: var(--glass-border-width) solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .light-theme .theme-toggle {
@@ -1133,6 +1200,17 @@ body {
 }
 
 .light-theme .theme-toggle:hover {
+    background: #f8f9fa;
+    color: #495057;
+}
+
+.light-theme .scroll-to-top {
+    background: #ffffff;
+    border-color: #dee2e6;
+    color: #6c757d;
+}
+
+.light-theme .scroll-to-top:hover {
     background: #f8f9fa;
     color: #495057;
 }
@@ -1194,34 +1272,42 @@ body {
     color: #212529;
 }
 
+/* Black icons and text on light-mode nav */
 .light-theme .nav-icon {
-    color: #6c757d;
+    color: #000000;
+    opacity: 0.7;
 }
 
 .light-theme .nav-item.active .nav-icon {
-    color: #495057;
+    color: #000000;
+    opacity: 1;
 }
 
 .light-theme .nav-text {
-    color: #6c757d;
+    color: #000000;
+    opacity: 0.7;
+    font-weight: 700; /* UPDATED: Bold font */
 }
 
 .light-theme .nav-item.active .nav-text {
-    color: #495057;
+    color: #000000;
+    opacity: 1;
+    font-weight: 700; /* UPDATED: Bold font */
 }
 
 .light-theme .nav-item {
     border: 1px solid transparent;
 }
 
+/* Light hover/active on dark bar */
 .light-theme .nav-item:hover {
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .light-theme .nav-item.active {
-    background: #e9ecef;
-    border: 1px solid #ced4da;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .light-theme .experience-location {
@@ -1349,6 +1435,13 @@ body {
         height: 45px;
         top: 15px;
         right: 15px;
+    }
+    
+    .scroll-to-top {
+        bottom: 90px; /* Position above the nav bar */
+        right: 15px;
+        width: 45px;
+        height: 45px;
     }
 
     .contact-info {

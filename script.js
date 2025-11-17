@@ -407,4 +407,27 @@ window.addEventListener('scroll', () => {
         nav.classList.remove('nav-hidden');
     }
     lastScrollY = window.scrollY;
-});
+})
+
+// --- Corner Nav Toggle Logic ---
+const cornerNav = document.getElementById('cornerNav');
+
+if (cornerNav) {
+    // Click on the nav itself toggles it
+    cornerNav.addEventListener('click', (e) => {
+        // Only toggle if the click is on the nav container or the active item
+        // Clicks on *other* links should just navigate
+        if (!e.target.closest('a') || e.target.closest('.nav-item.active')) {
+             e.preventDefault(); // Prevent navigation if clicking active item
+             cornerNav.classList.toggle('expanded');
+        }
+    });
+
+    // Click *outside* the nav closes it
+    window.addEventListener('click', (e) => {
+        // If the click is NOT inside the nav, close it
+        if (!cornerNav.contains(e.target)) {
+            cornerNav.classList.remove('expanded');
+        }
+    });
+}

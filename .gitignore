@@ -84,3 +84,7 @@ blogContent/
 *.bak
 *.backup
 *~
+.vercel
+.env*.local
+
+*src
